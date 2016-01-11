@@ -8,14 +8,20 @@
 # return dictionary
 
 def word_count(file_name):
+    '''Takes file and outputs the number of time indvidual words appear'''
+
     poem = open(file_name)
 
     word_count = {}
+    import string
 
     for line in poem:
         # print line 
         line = line.rstrip()
+        line = line.upper()
+        line = line.translate(None, string.punctuation)
         individual_words = line.split(" ")
+        # individual_words = individual_words.lower()
      
         # print individual_words
 
@@ -34,4 +40,4 @@ def word_count(file_name):
 
     poem.close()
 
-word_count("twain.txt")
+word_count("test.txt")
